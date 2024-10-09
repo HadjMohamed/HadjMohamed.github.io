@@ -4,39 +4,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Portfolio Website</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css"> 
+    <title>Portfolio - Mohamed Hadj</title>
 </head>
-<body>
-    <header>
-        <a href="#" class="logo">Alex</a>
 
-        <nav>
-            <a href="#" class="active"> Home</a>
-            <a href="#" >Services</a>
-            <a href="#" >Skills</a>
-            <a href="#" >Education</a>
-            <a href="#" >Experience</a>
-            <a href="#" >Contact</a>
-        </nav>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#home" class="logo">
+             Mohamed Hadj
+        </a>
+        <div class='bx bx-menu' id="menu-icon"></div>
+
+        <ul class="links">
+            <li><a href="#home" > Home</a></li>
+            <li><a href="#about" > In a nutshell</a></li>
+            <li><a href="#portfolio" > Portfolio</a></li>
+            <li><a href="#contact" > Contact</a></li>
+        </ul>
     </header>
-    <section class="home">
+
+    <!-- Home page -->
+<div class="container">
+    <section class="home" id="home">
         <div class="home-img">
-            <img src="main.jpg" alt="">
+            <img src="IMG_8726-1080x720.png" alt="">
         </div>
         <div class="home-content">
-            <h1>Hi, It's <span>Alex</span></h1>
-            <h3 class="typing-text">I'm a <span></span></h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore dolores esse. Odit similique doloribus tenetur doloremque, sunt commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam quaerat neque asperiores ea.</p>
+            <h1>Welcome, I am Mohamed</h1>
+            <h3>I am <span class="typing-text"></span></h3>
+            <p><br>I am passionated by data manipulation and in perpetual desire to improve my skills. I am used to learn new data techniques from myself but also to share my knowledge with people.</p>
+            <p><br>
+                The purpose of this website is to quickly introduce myself, if you have more questions do not hesitate to talk to my virtual assistant <i>hIAdj</i> or to get in touch with me !</p>
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-touhami-hadj" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                <a href="#"><i class="bx bxl-github"></i></a>
             </div>
-            <a href="#" class="btn">Hire me</a>
+            <a href="#" class="btn">Chat with hIAdj</a>
         </div>
     </section>
+
+
+    <!--About me -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="heading">About me</div>
+
+            <div class="grid">
+                <div class="grid-card">
+                    <i class='bx bxs-graduation'></i>                   
+                    <h3>Master of Science</h3>
+                    <span>ENSTA Paris</span>
+                    <p>
+                        Master of Science (French "diplôme d'ingénieur") oriented toward IT development of complex systems. Obtained with 3.7 out of 4 GPA.
+                    </p>
+                </div>
+                <div class="grid-card">
+                    <i class='bx bx-rocket' ></i>
+                    <h3>2 years of experience</h3>
+                    <span>ArianeGroup</span>
+                    <p>
+                        I began as an safety flight engineer and my technical skills led me to become a big data developer for the European Space Launcher leader. 
+                    </p>
+                </div>
+            </div>
+            <a href="Hadj-Resume.pdf" target="_blank" class="btn">Download my resume</a>
+        </div>
+        <div class="about-img">
+            <img src="IMG_8726-1080x720.png" alt="">
+        </div>
+    </section>
+
+    <!--Portfolio section-->
+    <section class="portfolio" id="portfolio">
+        <div class="title">
+            <h2>My Portfolio</h2>
+        </div>
+    
+        <div class="portfolio-item">
+            <div class="portfolio-content">
+                <div class="portfolio-description">
+                    <h3>Explosion consequences prevision tool</h3>
+                    <p>For safety flight department, I self-developed backend and frontend of a software able to predict explosions consequences. 
+                        <br>The backend has consisted in collecting experimental data (more than 1Gb) and implementing it by using several techniques (dichotomia, K-NN, MSE). Then, through a BDD the tool automatically geenrated a report according to explosions parameters.
+                        <br>This project was really ambitious and I faced technical issues due to working in a securised Python environment. Hopefully, by working with senior developers, those issues have been solved and my tool has been added to the company rising up by 60% safety department productivity.
+                        <br>In order to respect my confidential agreement source code can unfortunately not be given. 
+                    </div>
+                <div class="portfolio-image">
+                    <img src="FIREFLY-EXPLODES.jpeg" alt="Project 1 Image">
+                </div>
+            </div>
+        </div>
+    
+        <div class="portfolio-item">
+            <div class="portfolio-content reverse">
+                <div class="portfolio-description">
+                    <h3>Chatbot based on personal data</h3>
+                    <p>I honestly was not satisfied of this website when I created it, something was missing: hIAadj. 
+                        On top of being very proud of its name, this chatbot introduced myself to some of text retrieval techniques (cosine similarity, vector database, MMR). I was not looking for an existing AI implemented through API prompting, I was really excited about training myself an LLM and it is what I did !</p>
+                </div>
+                <div class="portfolio-image">
+                    <img src="Hiadj-chatbot.jpg" alt="Project 2 Image">
+                </div>
+            </div>
+        </div>
+    
+        <div class="portfolio-item">
+            <div class="portfolio-content">
+                <div class="portfolio-description">
+                    <h3>Project 3</h3>
+                    <p>On my free time, I am currently working with a friend of an "Akinator for student".The goal of this project is to develop an interactive platform designed to assist high school students in discovering careers that align with their interests and aspirations. The platform will utilize a series of sequential questions to better understand the students' preferences and provide them with a tailored selection of potential careers.</p>
+                </div>
+                <div class="portfolio-image">
+                    <img src="Graduated-Aladdin.png" alt="Project 3 Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="title">
+            <h2>Contact Me</h2>
+        </div>
+
+        <div class="contact-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <h3>Mohamed Hadj</h3>
+            <p>Feel free to connect with me through any of the following platforms or send me a message!</p>
+
+            <ul class="socials">
+                <li><a href="www.linkedin.com/in/mohamed-touhami-hadj"><i class="bx bxl-linkedin"></i></a></li>
+                <li><a href="#"><i class="bx bxl-github"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Mohamed Hadj | All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
