@@ -493,7 +493,11 @@ footer {
         z-index: 1001; /* S'assurer qu'il est au-dessus de la navigation */
     }
     
-
+    .container{
+        scroll-snap-type: none;
+        overflow-y: scroll;
+        height: 100vh;
+    }
     .links {
         position: absolute;
         top: 100%; /* La nav-bar commence juste sous le menu-icon */
