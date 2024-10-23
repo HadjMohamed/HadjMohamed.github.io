@@ -48,7 +48,11 @@ function sendMessage() {
     document.getElementById("user-input").value = "";
 
     // fetching the question
-    fetch("http://127.0.0.1:5000/chatbot", {
+    const baseUrl = window.location.hostname === "127.0.0.1" 
+    ? "http://127.0.0.1:5000" // local http
+    : "https://backend-portfolio-j4h1.onrender.com"; // render https
+
+    fetch(`${baseUrl}/chatbot`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
