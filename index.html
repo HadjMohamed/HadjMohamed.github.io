@@ -19,7 +19,7 @@
 
         <ul class="links">
             <li><a href="#home" > Home</a></li>
-            <li><a href="#about" > In a nutshell</a></li>
+            <li><a href="#about" > About me</a></li>
             <li><a href="#portfolio" > Portfolio</a></li>
             <li><a href="#contact" > Contact</a></li>
         </ul>
@@ -41,7 +41,22 @@
                 <a href="https://www.linkedin.com/in/mohamed-touhami-hadj" target="_blank"><i class="bx bxl-linkedin"></i></a>
                 <a href="#"><i class="bx bxl-github"></i></a>
             </div>
-            <a href="#" class="btn">Chat with hIAdj</a>
+            <div class="chatbot-modal" id="chatbot-modal">
+                <div class="chatbot-header">
+                    <h3>Chatbot</h3>
+                    <button class="close-btn" onclick="closeModal()">×</button>
+                </div>
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div class="chatbot-input-area">
+                    <input type="text" id="user-input" placeholder="Posez votre question...">
+                    <button  id="send-btn" class="send-btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        
+            <button class="open-chatbot-btn" onclick="openModal()">Chat with hIAdj</button>
+            
         </div>
     </section>
 
@@ -57,7 +72,9 @@
                     <h3>Master of Science</h3>
                     <span>ENSTA Paris</span>
                     <p>
-                        Master of Science (French "diplôme d'ingénieur") oriented toward IT development of complex systems. Obtained with 3.7 out of 4 GPA.
+                        Master of Science (French "diplôme d'ingénieur") oriented toward IT development of complex systems. 
+                        <br>This diploma taught me a strong knowledge of data engineering basis applied to concrete problems such as software engineering in Python, SQL database, bash and GIT.
+                        <br>Obtained with 3.7 out of 4 GPA.
                     </p>
                 </div>
                 <div class="grid-card">
@@ -86,9 +103,11 @@
             <div class="portfolio-content">
                 <div class="portfolio-description">
                     <h3>Explosion consequences prevision tool</h3>
-                    <p>For safety flight department, I self-developed backend and frontend of a software able to predict explosions consequences. 
-                        <br>The backend has consisted in collecting experimental data (more than 1Gb) and implementing it by using several techniques (dichotomia, K-NN, MSE). Then, through a BDD the tool automatically geenrated a report according to explosions parameters.
-                        <br>This project was really ambitious and I faced technical issues due to working in a securised Python environment. Hopefully, by working with senior developers, those issues have been solved and my tool has been added to the company rising up by 60% safety department productivity.
+                    <p>For safety flight department, I self-developed backend and user interface of a software able to predict explosions consequences. 
+                        <br>The backend has consisted in collecting experimental data from curves, processing data by removing unrelevant points and load it into a database.
+                        <br>Then, through the User interface and a Binary Decision Diagram the tool automatically generated a report corresponding to explosions parameters.
+                        <br>This project was really challenging due to working in a securised Python environment but working with senior developers allowed me to more comfortable with data manipulation and effective programmation. 
+                        <br>My tool has been added to the company rising up by 60% safety department productivity.
                         <br>In order to respect my confidential agreement source code can unfortunately not be given. 
                     </div>
                 <div class="portfolio-image">
@@ -102,7 +121,10 @@
                 <div class="portfolio-description">
                     <h3>Chatbot based on personal data</h3>
                     <p>I honestly was not satisfied of this website when I created it, something was missing: hIAadj. 
-                        On top of being very proud of its name, this chatbot introduced myself to some of text retrieval techniques (cosine similarity, vector database, MMR). I was not looking for an existing AI implemented through API prompting, I was really excited about training myself an LLM and it is what I did !</p>
+                        On top of being very proud of its name, this chatbot introduced myself to some of text retrieval techniques (cosine similarity, vector database, MMR). 
+                        I was not looking for an existing AI implemented through API prompting, I was really excited about creating myself the text generation it is what I did !
+                        Of course the chatbot may be not efficient as an OpenAI model, due to my available ressources, I focused on a simple way to answering questions without being dependant of an existing public model.
+                    </p>
                 </div>
                 <div class="portfolio-image">
                     <img src="Hiadj-chatbot.jpg" alt="Project 2 Image">
@@ -113,8 +135,8 @@
         <div class="portfolio-item">
             <div class="portfolio-content">
                 <div class="portfolio-description">
-                    <h3>Project 3</h3>
-                    <p>On my free time, I am currently working with a friend of an "Akinator for student".The goal of this project is to develop an interactive platform designed to assist high school students in discovering careers that align with their interests and aspirations. The platform will utilize a series of sequential questions to better understand the students' preferences and provide them with a tailored selection of potential careers.</p>
+                    <h3>Students' Akinator</h3>
+                    <p>On my free time, I am currently working with a friend on an "Akinator for student".The goal of this project is to develop an interactive platform designed to assist high school students in discovering careers that align with their interests and aspirations. The platform will utilize a series of sequential questions to better understand the students' preferences and provide them with a tailored selection of potential careers.</p>
                 </div>
                 <div class="portfolio-image">
                     <img src="Graduated-Aladdin.png" alt="Project 3 Image">

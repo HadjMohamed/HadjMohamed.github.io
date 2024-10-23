@@ -191,6 +191,110 @@ span{
     box-shadow: 0 0 25px #da6dc1;
 }
 
+.open-chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #0a731a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chatbot-modal {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid #ccc;
+}
+
+.chatbot-header {
+    background-color: #0a731a;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.chatbot-messages {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.chatbot-input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.send-btn {
+    background-color: #0a731a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    width: fit-content;
+    color: white;
+
+}
+
+.message.user {
+    flex-direction: column;
+    background-color: #0a731a;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+}
+
+.message.bot {
+    background-color: #da6dc1;
+    align-self: flex-start;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+}
+
 /* About Section  */ 
 
 .about {
@@ -274,6 +378,7 @@ span{
 
 .grid-card p {
     color: black;
+    text-align: left;
 }
 
 .grid-card span {
@@ -466,8 +571,6 @@ footer {
 }
 
 @media(max-width:1285px){
-    html{
-    }
 }
 @media (max-width:991px) {
     header{
@@ -484,13 +587,13 @@ footer {
 @media (max-width:786px) {
     #menu-icon{
         display:inline-block;
-        position: absolute; /* Positionnez-le en absolu par rapport à l'en-tête */
-        top: 1rem; /* Ajustez la position verticale */
-        right: 2rem; /* Ajustez la position horizontale */
+        position: absolute; 
+        top: 1rem; 
+        right: 2rem; 
         font-size: 3.6rem;
         color: #0a731a;
         cursor: pointer;
-        z-index: 1001; /* S'assurer qu'il est au-dessus de la navigation */
+        z-index: 1001; 
     }
     
     .container{
@@ -500,16 +603,16 @@ footer {
     }
     .links {
         position: absolute;
-        top: 100%; /* La nav-bar commence juste sous le menu-icon */
-        right: -100%; /* Caché à droite par défaut */
+        top: 100%; 
+        right: -100%; 
         width: 255px;
-        min-height: 100vh; /* Prend toute la hauteur de la page */
+        min-height: 100vh; 
         display: flex;
         flex-direction: column;
         background-color: white;
         transition: all 0.3s ease;
         backdrop-filter: blur(10px);
-        z-index: 1000; /* Derrière le menu-icon */
+        z-index: 1000; 
     }
 
     .links a{
