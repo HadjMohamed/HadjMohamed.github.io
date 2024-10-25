@@ -56,10 +56,8 @@ function sendMessage() {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
         },
         body: JSON.stringify({ question: userInput }),
-        mode: "no-cors",
     })
     .then(response => response.json())
     .then(data => {
