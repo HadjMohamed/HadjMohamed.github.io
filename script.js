@@ -59,7 +59,7 @@ function sendMessage() {
     // Fetching the question
     const baseUrl = window.location.hostname === "127.0.0.1" 
         ? "http://127.0.0.1:5000" 
-        : "https://backend-portfolio-j4h1.onrender.com";
+        : "https://backend-portfolio-production-5049.up.railway.app/";
 
     console.log("Base URL for API:", baseUrl);
 
