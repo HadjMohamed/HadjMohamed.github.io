@@ -16,7 +16,7 @@ window.onscroll = () => {
 // Typing text
 console.log("Initializing typing effect");
 const typed = new Typed('.typing-text', {
-    strings: ['a data engineer', 'specialized in Python', 'graduated in 2024'],
+    strings: ['a software engineer', 'graduated in 2024','focused on innovation and always learning'],
     typeSpeed: 50,
     backSpeed: 90,
     loop: true,
@@ -33,6 +33,23 @@ function closeModal() {
     document.getElementById("chatbot-modal").style.display = "none";
     console.log("Chatbot modal closed");
 }
+
+// Bot dialog
+function addBotMessage(text) {
+    const messagesContainer = document.getElementById("chatbot-messages");
+    const botMessageDiv = document.createElement("div");
+    botMessageDiv.className = "message bot";
+    botMessageDiv.innerText = text;
+    messagesContainer.appendChild(botMessageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    console.log("Displayed bot message:", text);
+}
+// Welcoming message
+document.addEventListener("DOMContentLoaded", () => {
+    const welcomeMessage = "Hello I'm hIAdj ! 😊 Here to help you !\n" +
+                            "I am currently recovering from a hosting-cost fever 😞 and will return shortly!";
+    addBotMessage(welcomeMessage);
+});
 
 function sendMessage() {
     const userInput = document.getElementById("user-input").value;
@@ -87,6 +104,7 @@ function sendMessage() {
     })
     .catch(error => {
         console.error("Erreur:", error);
+        addBotMessage("Désolé, je n'ai pas pu répondre pour le moment. Veuillez réessayer.");
     });
 }
 
@@ -100,3 +118,4 @@ document.getElementById('user-input').addEventListener('keydown', function (even
         console.log("Send message triggered by Enter key");
     }
 });
+
