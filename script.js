@@ -76,7 +76,7 @@ function sendMessage() {
     // Fetching the question
     const baseUrl = window.location.hostname === "127.0.0.1" 
     ? "http://127.0.0.1:5000" 
-    : `https://${window.location.hostname}`;
+    : `https://web-production-0de93.up.railway.app`;
 
     console.log("Base URL for API:", baseUrl);
 
