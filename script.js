@@ -47,13 +47,20 @@ function addBotMessage(text) {
 // Welcoming message
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeMessage = "Hello I'm hIAdj ! 😊 Here to help you !\n" +
-                            "I am currently recovering from a hosting-cost fever 😞 and will return shortly!";
+                            "You can try the following questions :\n";
+
+    const example1= "- Who is Mohamed Hadj ?";
+    const example2= "- What do you do in your free time ?";
+    const example3= "- What skills did you develop at ArianeGroup ?";
+
     addBotMessage(welcomeMessage);
+    addBotMessage(example1);
+    addBotMessage(example2);
+    addBotMessage(example3);
 });
 
 function sendMessage() {
     const userInput = document.getElementById("user-input").value;
-    console.log("User input:", userInput);
     if (userInput.trim() === "") {
         console.log("User input is empty, aborting");
         return;
@@ -68,15 +75,14 @@ function sendMessage() {
 
     // Scroll to the bottom
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    console.log("Displayed user message and scrolled down");
 
     // Clearing input
     document.getElementById("user-input").value = "";
 
     // Fetching the question
     const baseUrl = window.location.hostname === "127.0.0.1" 
-    ? "http://127.0.0.1:5000" 
-    : `https://web-production-0de93.up.railway.app`;
+    ? "http://127.0.0.1:5500" 
+    : "https://web-production-0de93.up.railway.app";
 
     console.log("Base URL for API:", baseUrl);
 
@@ -88,11 +94,9 @@ function sendMessage() {
         body: JSON.stringify({ question: userInput }),
     })
     .then(response => {
-        console.log("Response received:", response);
         return response.json();
     })
     .then(data => {
-        console.log("Data from server:", data);
 
         const botMessageDiv = document.createElement("div");
         botMessageDiv.className = "message bot";
@@ -100,11 +104,10 @@ function sendMessage() {
         messagesContainer.appendChild(botMessageDiv);
 
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        console.log("Displayed bot response and scrolled down");
     })
     .catch(error => {
         console.error("Erreur:", error);
-        addBotMessage("Désolé, je n'ai pas pu répondre pour le moment. Veuillez réessayer.");
+        addBotMessage("Sorry, I couldn't respond at the moment. Please try again.");
     });
 }
 
@@ -115,7 +118,6 @@ document.getElementById('user-input').addEventListener('keydown', function (even
     if ((event.key === 'Enter' && !event.shiftKey) && !(event.ctrlKey || event.metaKey)) {
         event.preventDefault();
         sendMessage();
-        console.log("Send message triggered by Enter key");
     }
 });
 
