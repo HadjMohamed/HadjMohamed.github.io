@@ -517,11 +517,16 @@ form {
 
 
 /* Footer Section */
+
+
 footer {
     background-color: #0a731a;
     color: white;
-    padding: 4rem 9%;
     text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-container {
@@ -531,15 +536,14 @@ footer {
     flex-direction: column;
 }
 
-.footer-content h3 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+
+.footer-content a {
+    color: #da6dc1;
+    text-decoration: none;
 }
 
-.footer-content p {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
+.footer-content a:hover {
+    text-decoration: underline;
 }
 
 .socials {

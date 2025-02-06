@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             "You can try the following questions :\n";
 
     const example1= "- Who is Mohamed Hadj ?";
-    const example2= "- What do you do in your free time ?";
+    const example2= "- What do you do on your free time ?";
     const example3= "- What skills did you develop at ArianeGroup ?";
 
     addBotMessage(welcomeMessage);
