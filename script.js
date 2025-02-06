@@ -24,6 +24,9 @@ const typed = new Typed('.typing-text', {
 console.log("Typing effect initialized");
 
 // Chatbot modal
+
+let isMaintenanceMode = true;
+
 function openModal() {
     document.getElementById("chatbot-modal").style.display = "block";
     console.log("Chatbot modal opened");
@@ -47,16 +50,20 @@ function addBotMessage(text) {
 // Welcoming message
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeMessage = "Hello I'm hIAdj ! 😊 Here to help you !\n" +
-                            "You can try the following questions :\n";
+                           "You can try the following questions :\n";
 
-    const example1= "- Who is Mohamed Hadj ?";
-    const example2= "- What do you do on your free time ?";
-    const example3= "- What skills did you develop at ArianeGroup ?";
+    const example1 = "- Who is Mohamed Hadj ?";
+    const example2 = "- What do you do on your free time ?";
+    const example3 = "- What skills did you develop at ArianeGroup ?";
 
     addBotMessage(welcomeMessage);
     addBotMessage(example1);
     addBotMessage(example2);
     addBotMessage(example3);
+
+    if (isMaintenanceMode) {
+        addBotMessage("Due to higher hosting costs, the chatbot is currently under maintenance and will be back ASAP !");
+    }
 });
 
 function sendMessage() {
