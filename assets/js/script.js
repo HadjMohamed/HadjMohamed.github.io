@@ -16,7 +16,7 @@ window.onscroll = () => {
 // Typing text
 console.log("Initializing typing effect");
 const typed = new Typed('.typing-text', {
-    strings: ['a software engineer', 'graduated in 2024','focused on innovation and always learning'],
+    strings: ['a data engineer', 'graduated in 2024','focused on innovation and always learning'],
     typeSpeed: 50,
     backSpeed: 90,
     loop: true,
