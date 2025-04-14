@@ -49,12 +49,12 @@ function addBotMessage(text) {
 }
 // Welcoming message
 document.addEventListener("DOMContentLoaded", () => {
-    const welcomeMessage = "Hello I'm hIAdj ! 😊 Here to help you !\n" +
-                           "You can try the following questions :\n";
+    const welcomeMessage = "Bonjour, je suis hIAdj ! 😊 Je suis là pour vous aider !\n" +
+                           "Vous pouvez essayer les questions suivantes :\n";
 
-    const example1 = "- Who is Mohamed Hadj ?";
-    const example2 = "- What do you do on your free time ?";
-    const example3 = "- What skills did you develop at ArianeGroup ?";
+    const example1 = "- Qui est Mohamed Hadj ?";
+    const example2 = "- Que faites-vous pendant votre temps libre ?";
+    const example3 = "- Quelles compétences avez-vous développées chez ArianeGroup ?";
 
     addBotMessage(welcomeMessage);
     addBotMessage(example1);
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addBotMessage(example3);
 
     if (isMaintenanceMode) {
-        addBotMessage("Due to higher hosting costs, the chatbot is currently under maintenance and will be back ASAP !");
+        addBotMessage("En raison de coûts d'hébergement élevés, le chatbot est actuellement en maintenance et sera de retour dès que possible !");
     }
 });
 
@@ -73,27 +73,26 @@ function sendMessage() {
         return;
     }
 
-    // Display user's message
     const messagesContainer = document.getElementById("chatbot-messages");
+
+    // Affichage du message utilisateur
     const userMessageDiv = document.createElement("div");
     userMessageDiv.className = "message user";
     userMessageDiv.innerText = userInput;
     messagesContainer.appendChild(userMessageDiv);
-
-    // Scroll to the bottom
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-    // Clearing input
+    // On vide le champ
     document.getElementById("user-input").value = "";
 
-    // Fetching the question
-    const baseUrl = window.location.hostname === "127.0.0.1" 
-    ? "http://127.0.0.1:5500" 
-    : "https://ragchatbot-525954493419.europe-west9.run.app";
+    // Définition de l’URL de l’API
+    const baseUrl = window.location.hostname === "localhost" 
+        ? "http://0.0.0.0:8000" // Localhost
+        : "https://ragchatbot-525954493419.europe-west9.run.app";
 
-    console.log("Base URL for API:", baseUrl);
+    const apiEndpoint = `${baseUrl}/ask`;
 
-    fetch(`${baseUrl}/ask`, {
+    fetch(apiEndpoint, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -101,22 +100,28 @@ function sendMessage() {
         body: JSON.stringify({ question: userInput }),
     })
     .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur lors de la requête à l'API.");
+        }
         return response.json();
     })
     .then(data => {
-
         const botMessageDiv = document.createElement("div");
         botMessageDiv.className = "message bot";
-        botMessageDiv.innerText = data.response;
+        botMessageDiv.innerText = data.answer || "Je n’ai pas de réponse pour le moment.";
         messagesContainer.appendChild(botMessageDiv);
-
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     })
     .catch(error => {
         console.error("Erreur:", error);
-        addBotMessage("Sorry, I couldn't respond at the moment. Please try again.");
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "message bot";
+        errorDiv.innerText = "Désolé, une erreur est survenue. Réessaie plus tard.";
+        messagesContainer.appendChild(errorDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
     });
 }
+
 
 // Keyboard shortcuts
 document.getElementById('send-btn').addEventListener('click', sendMessage);
