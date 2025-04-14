@@ -25,7 +25,7 @@ console.log("Typing effect initialized");
 
 // Chatbot modal
 
-let isMaintenanceMode = true;
+let isMaintenanceMode = false;
 
 function openModal() {
     document.getElementById("chatbot-modal").style.display = "block";
@@ -89,11 +89,11 @@ function sendMessage() {
     // Fetching the question
     const baseUrl = window.location.hostname === "127.0.0.1" 
     ? "http://127.0.0.1:5500" 
-    : "https://web-production-0de93.up.railway.app";
+    : "https://ragchatbot-525954493419.europe-west9.run.app";
 
     console.log("Base URL for API:", baseUrl);
 
-    fetch(`${baseUrl}/chatbot`, {
+    fetch(`${baseUrl}/ask`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
