@@ -85,6 +85,15 @@ function sendMessage() {
     // On vide le champ
     document.getElementById("user-input").value = "";
 
+    // Spinner en attendant la réponse
+    const botThinkingDiv = document.createElement("div");
+    botThinkingDiv.className = "message bot thinking";
+    const spinner = document.createElement("div");
+    spinner.className = "spinner";
+    botThinkingDiv.appendChild(spinner);
+    messagesContainer.appendChild(botThinkingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
     // Définition de l’URL de l’API
     const baseUrl = window.location.hostname === "localhost" 
         ? "http://0.0.0.0:8000" // Localhost
@@ -106,6 +115,8 @@ function sendMessage() {
         return response.json();
     })
     .then(data => {
+        messagesContainer.removeChild(botThinkingDiv); 
+
         const botMessageDiv = document.createElement("div");
         botMessageDiv.className = "message bot";
         botMessageDiv.innerText = data.answer || "Je n’ai pas de réponse pour le moment.";
@@ -114,6 +125,8 @@ function sendMessage() {
     })
     .catch(error => {
         console.error("Erreur:", error);
+        messagesContainer.removeChild(botThinkingDiv); 
+
         const errorDiv = document.createElement("div");
         errorDiv.className = "message bot";
         errorDiv.innerText = "Désolé, une erreur est survenue. Réessaie plus tard.";
@@ -121,6 +134,7 @@ function sendMessage() {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     });
 }
+
 
 
 // Keyboard shortcuts

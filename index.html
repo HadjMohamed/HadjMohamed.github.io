@@ -39,7 +39,7 @@
             
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/mohamed-touhami-hadj" target="_blank"><i class="bx bxl-linkedin"></i></a>
-                <!--<a href="#"><i class="bx bxl-github"></i></a> -->
+                <a href="https://github.com/HadjMohamed" target="_blank"><i class="bx bxl-github"></i></a> 
             </div>
             <div class="chatbot-modal" id="chatbot-modal">
                 <div class="chatbot-header">
@@ -47,6 +47,10 @@
                     <button class="close-btn" onclick="closeModal()">×</button>
                 </div>
                 <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="chatbot-loader" id="chatbot-loader" style="display: none;">
+                        <div class="loader"></div>
+                    </div>
+                    
                     <!-- Messages -->
                 </div>
                 <div class="chatbot-input-area">
@@ -100,10 +104,10 @@
             <div class="portfolio-content">
                 <div class="portfolio-description">
                     <h3>Explosion consequences prevision tool</h3>
-                    <p>For safety flight department, I self-developed backend and user interface of a software able to predict explosions consequences. 
-                        <p>The backend involved collecting experimental data from curves, processing the data by filtering out irrelevant points, and loading it into a database.</p>
-                        <p>Through an OOP Python-based UI integrated with a database, the tool automatically generated reports based on user inputs.</p>
-                        <p>This project was particularly challenging due to working within a secured Python environment. However, collaborating with senior developers enhanced my comfort with data manipulation and efficient programming practices.</p>
+                    <p>My mission was to create a tool that could automatically generate reports based on user inputs, significantly reducing the time spent on manual data entry and report generation.</p>
+                    <p>I developed a solution using Natural Language Processing (NLP) techniques to extract data from a 600-page physical workbook, leveraging Retrieval-Augmented Generation (RAG) methods. To clean and structure the data, I implemented an ETL pipeline orchestrated with Airflow, using Pandas for preprocessing.
+                    </p>
+                    <p>All development was done under the supervision of four senior developers, following a robust CI/CD workflow. I automated the generation of reports and containerized the entire tool with Docker to ensure portability and reproducibility.</p>
                         <p>The tool was successfully adopted by the company, boosting the safety department's productivity by <strong>60%</strong>.</p>
                         <p><em>Due to confidentiality agreements, I am unable to share the source code.</em></p>
                     </div>
@@ -117,12 +121,14 @@
             <div class="portfolio-content reverse">
                 <div class="portfolio-description">
                     <h3>Chatbot based on personal data</h3>
-                    <p>When I first created this website, I felt something was missing: <strong>hIAdj</strong>. Beyond being proud of its name, this chatbot introduced me to text retrieval techniques such as cosine similarity, vector databases, and MMR.</p>
-
-                    <p>Rather than relying on an existing AI via API prompting, I was determined to build my own text generation solution—and that's exactly what I did!</p>
-                    
-                    <p>While <strong>hIAdj</strong> may not be as efficient as an OpenAI model due to my limited resources, I focused on implementing a simple yet effective approach to answer questions without depending on publicly available BERT models.</p>
-                    
+                    <p>When I first created this website, I felt something was missing: <strong>hIAdj</strong>. Beyond being proud of its name, this chatbot introduced me to text retrieval techniques and ML engineering.</p> 
+                    <p>Curious to see what a local chatbot could do with my own data, I built a lightweight RAG pipeline from scratch.</p> 
+                    <p>It retrieves the most relevant content from a ChromaDB vector database and feeds it to an open-source LLM (DeepSeek V3) to generate responses. If no useful document is found, it falls back to a custom prompt-only mode based on a pre-defined FAQ.</p> 
+                    <p>The whole system runs on a FastAPI backend, fully containerized with Docker and ready to deploy. A Makefile simplifies both local runs and cloud deployment—Terraform integration is on the roadmap.</p> 
+                    <p>While <strong>hIAdj</strong> may not match the efficiency of OpenAI models due to my limited resources, I focused on building a simple yet effective solution that puts my entire data engineering stack into action.</p>
+                    <div class="social-icons">
+                    <a href="https://github.com/HadjMohamed/Backend-Portfolio" target="_blank"><i class="bx bxl-github"></i></a> 
+                    </div>
                 </div>
                 <div class="portfolio-image">
                     <img src="assets/images/Hiadj-chatbot.jpg" alt="Project 2 Image">
@@ -132,13 +138,17 @@
         <div class="portfolio-item">
             <div class="portfolio-content">
                 <div class="portfolio-description">
-                    <h3>Students' Akinator</h3>
-                    <p>In my free time, I am currently working with a friend on an <em>'Akinator for Students'</em>. This project aims to develop an interactive platform that helps high school students discover careers suited to their interests and aspirations.</p>
-
-                    <p>The platform uses a series of sequential questions to better understand students' preferences and provides them with a tailored selection of potential career paths.</p>
+                    <h3>Reddit API Fake News</h3>
+                    <p>Born from a two-week challenge, the <strong>Reddit Fake News Detector</strong> is a data-driven tool designed to classify news headlines from Reddit’s <code>r/worldnews</code> as real or fake using NLP and machine learning.</p> 
+                    <p>We built a full pipeline—from scraping headlines with the Reddit API to storing them in BigQuery, analyzing them with a fine-tuned BERT model, and displaying results through an interactive Streamlit app. Everything runs on a Python backend orchestrated with Airflow and exposed via FastAPI.</p> 
+                    <p>Updates were scheduled every 24 hours (no longer updated because of hosting costs), ensuring fresh data and live classification results. The goal? Help users visualize how content is classified and better understand the patterns behind online misinformation.</p> 
+                    <p><strong>Tech Stack Highlights:</strong> Reddit API · Google Cloud (BigQuery) · Python · FastAPI · Airflow · Streamlit · GitHub</p> 
+                    <div class="social-icons">
+                        <a href="https://github.com/HadjMohamed/Backend-Portfolio" target="_blank"><i class="bx bxl-github"></i></a> 
+                    </div>
                 </div>
                 <div class="portfolio-image">
-                    <img src="assets/images/Graduated-Aladdin.png" alt="Project 4 Image">
+                    <img src="assets/images/NLP-HomePage.png" alt="Project 3 Image">
                 </div>
             </div>
         </div>
@@ -152,6 +162,19 @@
                 </div>
                 <div class="portfolio-image">
                     <img src="assets/images/CLothly-app.png" alt="Clothy App Interface">
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-content">
+                <div class="portfolio-description">
+                    <h3>Students' Akinator</h3>
+                    <p>In my free time, I am currently working with a friend on an <em>'Akinator for Students'</em>. This project aims to develop an interactive platform that helps high school students discover careers suited to their interests and aspirations.</p>
+
+                    <p>The platform uses a series of sequential questions to better understand students' preferences and provides them with a tailored selection of potential career paths.</p>
+                </div>
+                <div class="portfolio-image">
+                    <img src="assets/images/Graduated-Aladdin.png" alt="Project 4 Image">
                 </div>
             </div>
         </div>
